@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="sakura">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dedicated for aisha</title>
-    <meta name="description" content="A premium, aesthetic Tic Tac Toe game hub featuring an unbeatable AI opponent, sound synthesizers, dynamic themes, and a modern layout.">
-    
+    <meta name="description"
+        content="A premium, aesthetic Tic Tac Toe game hub featuring an unbeatable AI opponent, sound synthesizers, dynamic themes, and a modern layout.">
+
     <!-- PWA / Add to Homescreen Meta Tags -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#ff8da1">
@@ -13,13 +15,17 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="TicTacBestie">
-    <link rel="apple-touch-icon" href="image/rose-flower-cartoon-cute-pink-cartoon-flower-with-adorable-expression-kuNzw8k8_t-removebg-preview.png">
+    <link rel="apple-touch-icon"
+        href="image/rose-flower-cartoon-cute-pink-cartoon-flower-with-adorable-expression-kuNzw8k8_t-removebg-preview.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Quicksand:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Floating background decorative particles -->
     <div class="particles" id="particles"></div>
@@ -28,11 +34,11 @@
         <!-- Sidebar or Configuration Panel -->
         <aside class="config-panel">
             <div class="panel-header">
-                <h2>u da real aysha🥹✌️</h2>
+                <h2>⚙️ Settings</h2>
             </div>
 
 
-            
+
             <div class="setting-group">
                 <label for="modeSelect">Game Mode</label>
                 <div class="toggle-group" id="modeSelect">
@@ -53,7 +59,7 @@
                 <label for="themeSelect">Theme</label>
                 <div class="theme-grid" id="themeSelect">
                     <button class="theme-btn active" data-theme="sakura" title="Sakura Breeze">
-                        <span class="theme-dot" style="background: #ff8da1;"></span> cute
+                        <span class="theme-dot" style="background: #ff8da1;"></span> Sakura
                     </button>
                     <button class="theme-btn" data-theme="forest" title="Forest Whimsy">
                         <span class="theme-dot" style="background: #8cd694;"></span> Forest
@@ -65,13 +71,16 @@
             </div>
 
             <div class="setting-group">
-                <label>Audio</label>
-                <button class="cute-btn toggle-btn sfx-toggle active" id="sfxToggle" style="width: 100%; justify-content: center;">🔊 Sound On</button>
+                <label>Audio SFX</label>
+                <button class="cute-btn toggle-btn sfx-toggle active" id="sfxToggle"
+                    style="width: 100%; justify-content: center;">🔊 Sound On</button>
             </div>
 
             <div class="setting-group hidden" id="installGroup">
                 <label>App Installation</label>
-                <button class="cute-btn toggle-btn install-btn" id="installBtn" style="width: 100%; justify-content: center; background: var(--text-accent); color: white; border: none;">📲 Install App</button>
+                <button class="cute-btn toggle-btn install-btn" id="installBtn"
+                    style="width: 100%; justify-content: center; background: var(--text-accent); color: white; border: none;">📲
+                    Install App</button>
             </div>
 
             <!-- Recent Match Logs -->
@@ -87,15 +96,23 @@
         <!-- Main Game Container -->
         <main class="game-container">
             <div class="game-header">
-                <img class="header-icon left" src="image/rose-flower-cartoon-cute-pink-cartoon-flower-with-adorable-expression-kuNzw8k8_t-removebg-preview.png" alt="cute rose decoration" onerror="this.style.display='none'">
+                <img class="header-icon left"
+                    src="image/rose-flower-cartoon-cute-pink-cartoon-flower-with-adorable-expression-kuNzw8k8_t-removebg-preview.png"
+                    alt="cute rose decoration" onerror="this.style.display='none'">
                 <h1>cute game</h1>
-                <img class="header-icon right" src="image/rose-flower-cartoon-cute-cartoon-rose-with-cheerful-expression-qFPyqk1g_t-removebg-preview.png" alt="cute flower decoration" onerror="this.style.display='none'">
+                <img class="header-icon right"
+                    src="image/rose-flower-cartoon-cute-cartoon-rose-with-cheerful-expression-qFPyqk1g_t-removebg-preview.png"
+                    alt="cute flower decoration" onerror="this.style.display='none'">
             </div>
 
             <div class="turn-indicator">
-                <img id="turnIconLeft" class="turn-icon" src="image/rose-flower-cartoon-cute-pink-cartoon-flower-with-adorable-expression-kuNzw8k8_t-removebg-preview.png" alt="turn flower" onerror="this.style.display='none'">
+                <img id="turnIconLeft" class="turn-icon"
+                    src="image/rose-flower-cartoon-cute-pink-cartoon-flower-with-adorable-expression-kuNzw8k8_t-removebg-preview.png"
+                    alt="turn flower" onerror="this.style.display='none'">
                 <span id="turnText" class="turn-text">ethenkilm onn touch cheyy poothe 🌸</span>
-                <img id="turnIconRight" class="turn-icon" src="image/rose-flower-cartoon-cute-cartoon-rose-with-cheerful-expression-qFPyqk1g_t-removebg-preview.png" alt="cute flower" onerror="this.style.display='none'">
+                <img id="turnIconRight" class="turn-icon"
+                    src="image/rose-flower-cartoon-cute-cartoon-rose-with-cheerful-expression-qFPyqk1g_t-removebg-preview.png"
+                    alt="cute flower" onerror="this.style.display='none'">
             </div>
 
             <!-- 3x3 game board grid -->
@@ -129,7 +146,7 @@
                 <button class="cute-btn reset-btn" id="resetBtn">⟳ New Game</button>
                 <button class="cute-btn" id="fullResetBtn">score reset cheyyanenki ith press aak</button>
             </div>
-            
+
             <footer>♡ lemme knw if really liked ts or not ♡</footer>
         </main>
     </div>
@@ -150,4 +167,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
