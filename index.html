@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sakura">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe - Premium Whimsical Hub</title>
+    <meta name="description" content="A premium, aesthetic Tic Tac Toe game hub featuring an unbeatable AI opponent, sound synthesizers, dynamic themes, and a modern layout.">
+    
+    <!-- PWA / Add to Homescreen Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff8da1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="TicTacBestie">
+    <link rel="apple-touch-icon" href="image/rose-flower-cartoon-cute-pink-cartoon-flower-with-adorable-expression-kuNzw8k8_t-removebg-preview.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating background decorative particles -->
+    <div class="particles" id="particles"></div>
+
+    <div class="app-wrapper">
+        <!-- Sidebar or Configuration Panel -->
+        <aside class="config-panel">
+            <div class="panel-header">
+                <h2>⚙️ Settings</h2>
+            </div>
+
+
+            
+            <div class="setting-group">
+                <label for="modeSelect">Game Mode</label>
+                <div class="toggle-group" id="modeSelect">
+                    <button class="toggle-btn active" data-value="pvp">👥 2 Players</button>
+                    <button class="toggle-btn" data-value="pve">🤖 Vs AI</button>
+                </div>
+            </div>
+
+            <div class="setting-group hidden" id="difficultyGroup">
+                <label for="diffSelect">AI Level</label>
+                <div class="toggle-group" id="diffSelect">
+                    <button class="toggle-btn active" data-value="easy">🍬 Easy</button>
+                    <button class="toggle-btn" data-value="hard">🔥 Unbeatable</button>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <label for="themeSelect">Theme</label>
+                <div class="theme-grid" id="themeSelect">
+                    <button class="theme-btn active" data-theme="sakura" title="Sakura Breeze">
+                        <span class="theme-dot" style="background: #ff8da1;"></span> Sakura
+                    </button>
+                    <button class="theme-btn" data-theme="forest" title="Forest Whimsy">
+                        <span class="theme-dot" style="background: #8cd694;"></span> Forest
+                    </button>
+                    <button class="theme-btn" data-theme="cyber" title="Cyber Sparkle">
+                        <span class="theme-dot" style="background: #a066ff;"></span> Cyber
+                    </button>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <label>Audio SFX</label>
+                <button class="cute-btn toggle-btn sfx-toggle active" id="sfxToggle" style="width: 100%; justify-content: center;">🔊 Sound On</button>
+            </div>
+
+            <div class="setting-group hidden" id="installGroup">
+                <label>App Installation</label>
+                <button class="cute-btn toggle-btn install-btn" id="installBtn" style="width: 100%; justify-content: center; background: var(--text-accent); color: white; border: none;">📲 Install App</button>
+            </div>
+
+            <!-- Recent Match Logs -->
+            <div class="history-panel">
+                <h3>📜 Match History</h3>
+                <div class="history-list" id="historyList">
+                    <div class="empty-history">No matches played yet</div>
+                </div>
+                <button class="clear-history-btn" id="clearHistoryBtn">Clear History</button>
+            </div>
+        </aside>
+
+        <!-- Main Game Container -->
+        <main class="game-container">
+            <div class="game-header">
+                <img class="header-icon left" src="image/rose-flower-cartoon-cute-pink-cartoon-flower-with-adorable-expression-kuNzw8k8_t-removebg-preview.png" alt="cute rose decoration" onerror="this.style.display='none'">
+                <h1>cute game</h1>
+                <img class="header-icon right" src="image/rose-flower-cartoon-cute-cartoon-rose-with-cheerful-expression-qFPyqk1g_t-removebg-preview.png" alt="cute flower decoration" onerror="this.style.display='none'">
+            </div>
+
+            <div class="turn-indicator">
+                <img id="turnIconLeft" class="turn-icon" src="image/rose-flower-cartoon-cute-pink-cartoon-flower-with-adorable-expression-kuNzw8k8_t-removebg-preview.png" alt="turn flower" onerror="this.style.display='none'">
+                <span id="turnText" class="turn-text">ethenkilm onn touch cheyy poothe 🌸</span>
+                <img id="turnIconRight" class="turn-icon" src="image/rose-flower-cartoon-cute-cartoon-rose-with-cheerful-expression-qFPyqk1g_t-removebg-preview.png" alt="cute flower" onerror="this.style.display='none'">
+            </div>
+
+            <!-- 3x3 game board grid -->
+            <div class="board-wrapper">
+                <div class="board" id="board"></div>
+            </div>
+
+            <div class="status-area" id="statusArea">
+                <div class="status-message" id="statusMessage">
+                    <span id="statusText">ethenkilm onn touch cheyy poothe 🌸</span>
+                </div>
+            </div>
+
+            <!-- Score Panel -->
+            <div class="score-panel">
+                <div class="score-item" id="scoreXItem">
+                    <span class="player-mark">🌸 X</span>
+                    <span class="score-value" id="scoreX">0</span>
+                </div>
+                <div class="score-item" id="scoreDrawItem">
+                    <span class="player-mark">🌈 Tie</span>
+                    <span class="score-value" id="scoreDraw">0</span>
+                </div>
+                <div class="score-item" id="scoreOItem">
+                    <span class="player-mark">🌼 O</span>
+                    <span class="score-value" id="scoreO">0</span>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="cute-btn reset-btn" id="resetBtn">⟳ New Game</button>
+                <button class="cute-btn" id="fullResetBtn">score reset cheyyanenki ith press aak</button>
+            </div>
+            
+            <footer>♡ lemme knw if really liked ts or not ♡</footer>
+        </main>
+    </div>
+
+    <!-- Celebration/Game Over Overlay Modal -->
+    <div class="celebration-overlay" id="celebrationOverlay">
+        <div class="celebration-modal">
+
+            <div class="celebration-title" id="celebrationTitle">Winner!</div>
+            <div class="celebration-subtitle" id="celebrationSubtitle">You won the match.</div>
+            <button class="cute-btn play-again-btn" id="playAgainBtn">Play Again</button>
+        </div>
+        <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+    </div>
+
+    <!-- Toast Notification Container for PWA alerts -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

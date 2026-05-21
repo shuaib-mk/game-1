@@ -1,0 +1,22 @@
+{
+  "name": "Tic Tac Toe Whimsical Hub",
+  "short_name": "TicTacBestie",
+  "description": "Premium glassmorphic Tic Tac Toe with an unbeatable AI and your bestie!",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ff8da1",
+  "theme_color": "#ff8da1",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "image/rose-flower-cartoon-cute-pink-cartoon-flower-with-adorable-expression-kuNzw8k8_t-removebg-preview.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "image/rose-flower-cartoon-cute-pink-cartoon-flower-with-adorable-expression-kuNzw8k8_t-removebg-preview.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
